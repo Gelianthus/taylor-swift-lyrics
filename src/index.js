@@ -1,4 +1,4 @@
-import Lyrics from "./lib/Lyrics";
+import Lyrics from "../lib/Lyrics";
 import React from "react";
 
 function TaylorSwiftLyrics({ song }) {

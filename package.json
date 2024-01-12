@@ -1,12 +1,13 @@
 {
   "name": "taylor-swift-lyrics",
   "version": "1.0.3",
+  "type": "module",
   "types": "types/index.d.ts",
   "description": "Provides a react component of Taylor Swift's song's lyrics",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel index.js src/Lyrics.js -d lib"
+   "build": "babel src/index.js src/Lyrics.js -d lib"
   },
   "repository": {
     "type": "git",
