@@ -6,7 +6,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel index.js src/**/*.js -d lib"
+     "build": "babel index.js src/Lyrics.js -d lib"
   },
   "repository": {
     "type": "git",
