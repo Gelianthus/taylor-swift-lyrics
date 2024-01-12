@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "types": "types/index.d.ts",
   "description": "Provides a react component of Taylor Swift's song's lyrics",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d lib"
+    "build": "babel index.js src/**/*.js -d lib"
   },
   "repository": {
     "type": "git",
