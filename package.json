@@ -1,6 +1,6 @@
 {
   "name": "taylor-swift-lyrics",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "types": "./types/entrypoint.d.ts",
   "description": "Provides a react component of Taylor Swift's song's lyrics",
   "main": "./lib/index.js",
