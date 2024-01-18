@@ -13,10 +13,10 @@ function TaylorSwiftLyrics({ song, customStyles = {} }) {
 		<Lyrics
 			song={song}
 			customStylesObj={{
-				wrapper,
-				title,
-				line_container,
-				lines,
+				wrapper: wrapper,
+				title: title,
+				line_container: line_container,
+				lines: lines,
 			}}
 		/>
 	);
