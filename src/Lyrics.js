@@ -1,43 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./globals.css";
+import selectSong from "./songs";
 
-function Lyrics({ song }) {
-	const [songData, setSongData] = useState(null);
-	const [fetchStatus, setFetchStatus] = useState("loading");
-
-	useEffect(() => {
-		const fetchSong = async () => {
-			try {
-				const res = await fetch(`/songs/${song}.json`);
-				if (!res.ok) {
-					if (res.status === 404) {
-						setSongData(null);
-						setFetchStatus("not-found");
-					} else {
-						setSongData(null);
-						setFetchStatus("failed");
-					}
-				}
-				const data = await res.json();
-				setSongData(data);
-				setFetchStatus("success");
-			} catch (error) {
-				setSongData(null);
-				setFetchStatus("failed");
-			}
-		};
-		fetchSong();
-	}, []);
+function Lyrics({ song, customStylesObj }) {
+	const selectedSong = selectSong(song);
+	const { wrapper, title, line_container, lines } = customStylesObj;
 
 	return (
-		<div className="p-8">
-			{fetchStatus === "loading" && <p className="text-center">Loading...</p>}
-			{fetchStatus === "success" && (
+		<div className={`${wrapper ? wrapper : "p-8"}`}>
+			{selectedSong.length > 0 && (
 				<React.Fragment>
-					<p className="text-2xl mb-8 font-semibold">{songData.title}</p>
-					<div className="space-y-4">
-						{songData.lyrics.map((str, index) => (
-							<p key={index}>
+					<p className={`${title ? title : "text-2xl mb-8 font-semibold"} `}>
+						{selectedSong[0].title}
+					</p>
+					<div className={`${line_container ? line_container : "space-y-4"} `}>
+						{selectedSong[0].lyrics.map((str, index) => (
+							<p
+								className={`${lines ? lines : ""} `}
+								key={index}
+							>
 								{str.split("<BREAKER>").map((line, index) => (
 									<React.Fragment key={index}>
 										{line}
@@ -49,12 +30,9 @@ function Lyrics({ song }) {
 					</div>
 				</React.Fragment>
 			)}
-			{fetchStatus === "not-found" && (
-				<p className="text-center text-2xl">Song not found.</p>
-			)}
-			{fetchStatus === "failed" && (
-				<p className="text-center text-2xl">
-					An error occured while fetching song data.
+			{selectedSong.length < 1 && (
+				<p className={`${lines ? lines : "text-center text-2xl"} `}>
+					SONG NOT FOUND
 				</p>
 			)}
 		</div>

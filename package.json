@@ -1,13 +1,12 @@
 {
   "name": "taylor-swift-lyrics",
   "version": "1.0.3",
-  "type": "module",
-  "types": "types/entrypoint.d.ts",
+  "types": "./types/entrypoint.d.ts",
   "description": "Provides a react component of Taylor Swift's song's lyrics",
-  "main": "lib/index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src/index.js src/Lyrics.js -d lib"
+    "build": "babel src/index.js src/Lyrics.js src/songs.js -d lib"
   },
   "repository": {
     "type": "git",
