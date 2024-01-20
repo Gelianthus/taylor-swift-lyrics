@@ -7,14 +7,18 @@ function Lyrics({ song, customStylesObj }) {
 	const { wrapper, title, line_container, lines } = customStylesObj;
 
 	return (
-		<div className={wrapper}>
+		<div className={wrapper.length < 1 ? "p-8" : wrapper}>
 			{selectedSong.length > 0 && (
 				<React.Fragment>
-					<p className={title}>{selectedSong[0].title}</p>
-					<div className={line_container}>
+					<p
+						className={title.length < 1 ? "text-2xl mb-6 font-semibold" : title}
+					>
+						{selectedSong[0].title}
+					</p>
+					<div className={line_container.length < 1 ? "" : line_container}>
 						{selectedSong[0].lyrics.map((str, index) => (
 							<p
-								className={lines}
+								className={lines.length < 1 ? "my-4" : lines}
 								key={index}
 							>
 								{str.split("<BREAKER>").map((line, index) => (
@@ -28,7 +32,11 @@ function Lyrics({ song, customStylesObj }) {
 					</div>
 				</React.Fragment>
 			)}
-			{selectedSong.length < 1 && <p className={lines}>SONG NOT FOUND</p>}
+			{selectedSong.length < 1 && (
+				<p className={title.length < 1 ? "text-2xl mb-6 font-semibold" : title}>
+					SONG NOT FOUND
+				</p>
+			)}
 		</div>
 	);
 }

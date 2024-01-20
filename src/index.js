@@ -1,13 +1,12 @@
 import Lyrics from "./Lyrics";
-import "./globals.css";
 import React from "react";
 
 function TaylorSwiftLyrics({ song, customStyles = {} }) {
 	const {
-		wrapper = "p-8",
-		title = "text-2xl mb-4 font-semibold",
+		wrapper = "",
+		title = "",
 		line_container = "",
-		lines = "my-4",
+		lines = "",
 	} = customStyles;
 
 	return (
