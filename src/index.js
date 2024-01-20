@@ -1,4 +1,5 @@
 import Lyrics from "./Lyrics";
+import "./globals.css";
 import React from "react";
 
 function TaylorSwiftLyrics({ song, customStyles = {} }) {
