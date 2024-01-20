@@ -4,10 +4,10 @@ import React from "react";
 
 function TaylorSwiftLyrics({ song, customStyles = {} }) {
 	const {
-		wrapper = "default-wrapper",
-		title = "default-title",
+		wrapper = "p-8",
+		title = "text-2xl mb-4 font-semibold",
 		line_container = "",
-		lines = "default-lines",
+		lines = "my-4",
 	} = customStyles;
 
 	return (
